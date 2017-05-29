@@ -31,8 +31,8 @@ sap.ui.require(
 			When.onTheBrowser.iPressOnTheForwardButton();
 
 			// Assertions
-			Then.onThePostPage.theTitleShouldDisplayTheName("Jeans").
-				and.iTeardownMyAppFrame();
+			Then.onThePostPage.theTitleShouldDisplayTheName("Jeans")
+				.and.iTeardownMyAppFrame();
 		});
 	}
 );
