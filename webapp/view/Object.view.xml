@@ -17,7 +17,9 @@
 				number="{UnitsInStock}"/>
 		</semantic:content>
 		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+			<semantic:SendEmailAction
+				id="shareEmail"
+				press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
 	</semantic:FullscreenPage>
 </mvc:View>

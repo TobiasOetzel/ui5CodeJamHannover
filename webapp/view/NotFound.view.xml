@@ -3,9 +3,9 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 	<MessagePage
+		id="page"
 		description=""
 		icon="{sap-icon://document}"
-		id="page"
 		text="{i18n>notFoundText}"
 		title="{i18n>notFoundTitle}">
 		<customDescription>
