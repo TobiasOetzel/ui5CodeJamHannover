@@ -24,14 +24,17 @@
 				number="{UnitsInStock}">
 				<attributes>
 					<ObjectAttribute
-					title="{i18n>ObjectProductIdText}"
-					text="{ProductID}"/>
+						title="{i18n>ObjectProductIdText}"
+						text="{
+							path: 'ProductID'
+						}"/>
 					<ObjectAttribute
 						title="{i18n>ObjectPriceTitle}"
 						text="{
 							path: 'UnitPrice',
 							formatter: '.formatter.numberUnit'
 						} EUR"/>
+
 				</attributes>
 				<statuses>
 					<ObjectStatus
@@ -39,10 +42,10 @@
 						state="Error"
 						visible="{path:'Discontinued'}"/>
 					<ProgressIndicator
-							percentValue="{UnitsInStock}"
-							displayValue="{UnitsInStock}"
-							showValue="true"
-							state="{
+						percentValue="{UnitsInStock}"
+						displayValue="{UnitsInStock}"
+						showValue="true"
+						state="{
 							path: 'UnitsInStock',
 							formatter: '.formatter.quantityState'}" />
 				</statuses>
@@ -73,6 +76,29 @@
 							<Text text="{Supplier/Country}"/>
 						</form:content>
 					</form:SimpleForm>
+				</content>
+			</Panel>
+			<Panel
+				class="sapUiContentPadding"
+				headerText="{i18n>ObjectCommentsTabTitle}">
+				<content>
+					<FeedInput post="onPost"/>
+					<List
+						id="idCommentsList"
+						noDataText="{i18n>ObjectCommentNoData}"
+						showSeparators="Inner"
+						items="{
+							path: 'productFeedback>/productComments',
+							sorter: {
+								path: 'date',
+								descending: true
+							}
+						}">
+						<FeedListItem
+							info="{productFeedback>type}"
+							text="{productFeedback>comment}"
+							timestamp="{productFeedback>date}"/>
+					</List>
 				</content>
 			</Panel>
 		</semantic:content>
