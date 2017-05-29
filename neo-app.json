@@ -1,0 +1,18 @@
+{
+	"routes": [
+		{
+			"path": "/destinations/northwind/",
+			"target": {
+				"type": "destination",
+				"name": "northwind"
+			}
+		},
+		{
+			"path": "/destinations/es4",
+			"target": {
+				"type": "destination",
+				"name": "ES4"
+			}
+		}
+	]
+}
