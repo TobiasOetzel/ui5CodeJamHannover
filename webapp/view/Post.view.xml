@@ -26,7 +26,7 @@
 						expanded="{device>/isNoPhone}"
 						class="sapUiNoContentPadding">
 				<items>
-					<IconTabFilter icon="sap-icon://hint" key="info" >
+					<IconTabFilter icon="sap-icon://hint" key="info">
 						<form:SimpleForm>
 							<form:content>
 								<Label text="{i18n>postDateLabel}"/>
