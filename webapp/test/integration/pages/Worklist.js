@@ -98,7 +98,7 @@ sap.ui.require([
 							success: function () {
 								Opa5.assert.ok(true, "The table has 23 items");
 							},
-							errorMessage: "Table does not have all entries."
+							errorMessage: "The table does not have all entries."
 						});
 					},
 
