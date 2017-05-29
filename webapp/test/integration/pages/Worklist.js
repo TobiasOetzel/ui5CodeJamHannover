@@ -2,12 +2,14 @@ sap.ui.require([
 		'sap/ui/test/Opa5',
 		'sap/ui/test/matchers/AggregationLengthEquals',
 		'sap/ui/test/matchers/PropertyStrictEquals',
-		'sap/ui/demo/bulletinboard/test/integration/pages/Common'
+		'sap/ui/demo/bulletinboard/test/integration/pages/Common',
+		'sap/ui/test/actions/Press'
 	],
 	function (Opa5,
 			  AggregationLengthEquals,
 			  PropertyStrictEquals,
-			  Common) {
+			  Common,
+			  Press) {
 		"use strict";
 
 		var sViewName = "Worklist",
@@ -16,8 +18,33 @@ sap.ui.require([
 		Opa5.createPageObjects({
 			onTheWorklistPage: {
 				baseClass: Common,
-				actions: {},
+				actions: {
+					iPressOnMoreData: function () {
+						// Press action hits the "more" trigger on a table
+						return this.waitFor({
+							id: sTableId,
+							viewName: sViewName,
+							actions: new Press(),
+							errorMessage: "The Table does not have a trigger"
+						});
+					}
+				},
 				assertions: {
+					theTableShouldHavePagination: function () {
+						return this.waitFor({
+							id: sTableId,
+							viewName: sViewName,
+							matchers: new AggregationLengthEquals({
+								name: "items",
+								length: 20
+							}),
+							success: function () {
+								Opa5.assert.ok(true, "The table has 20 items on the first page");
+							},
+							errorMessage: "Table does not have all entries."
+						});
+					},
+
 					theTableShouldHaveAllEntries: function () {
 						return this.waitFor({
 							id: sTableId,
