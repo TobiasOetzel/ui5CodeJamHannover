@@ -310,6 +310,13 @@ sap.ui.define([
 					});
 				},
 
+				theTableShouldContainOnlyFormattedUnitNumbers: function() {
+					return this.theUnitNumbersShouldHaveTwoDecimals("sap.m.ObjectNumber",
+						sViewName,
+						"Object numbers are properly formatted",
+						"Table has no entries which can be checked for their formatting");
+				},
+
 				iShouldSeeTheWorklistViewsBusyIndicator: function() {
 					return this.waitFor({
 						id: "page",

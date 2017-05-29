@@ -23,6 +23,9 @@
 					sorter: {
 						path: 'ProductName',
 						descending: false
+					},
+					parameters: {
+						'expand': 'Supplier'
 					}
 				}">
 				<headerToolbar>
@@ -44,10 +47,28 @@
 							id="nameColumnTitle"
 							text="{i18n>TableNameColumnTitle}"/>
 					</Column>
-					<Column id="unitNumberColumn">
-						<Text
-							id="unitNumberColumnTitle"
-							text="{i18n>TableUnitNumberColumnTitle}"/>
+					<Column
+						id="supplierNameColumn"
+						demandPopin="false"
+						minScreenWidth="Tablet">
+						<Text text="{i18n>TableSupplierColumnTitle}"/>
+					</Column>
+					<Column
+						id="unitPriceColumn"
+						hAlign="End"
+						demandPopin="true"
+						minScreenWidth="Tablet">
+						<Text text="{i18n>TablePriceColumnTitle}"/>
+					</Column>
+					<Column id="unitsOnOrderColumn"
+						demandPopin="true"
+						minScreenWidth="Tablet"
+						hAlign="End">
+						<Text text="{i18n>TableUnitsOrderedColumnTitle}"/>
+					</Column>
+					<Column id="unitsInStockColumn"
+						hAlign="End">
+						<Text text="{i18n>TableUnitsInStockColumnTitle}"/>
 					</Column>
 				</columns>
 				<items>
@@ -57,7 +78,23 @@
 						<cells>
 							<ObjectIdentifier
 								title="{ProductName}"/>
-							<ObjectNumber number="{UnitsInStock}"/>
+							<Text text = "{Supplier/CompanyName}"/>
+							<ObjectNumber
+								unit="EUR"
+								number="{
+									path: 'UnitPrice',
+									formatter: '.formatter.numberUnit'
+								}"/>
+							<ObjectNumber
+								number="{UnitsOnOrder}"
+								unit="PC"/>
+							<ObjectNumber
+								number="{UnitsInStock}"
+								unit="PC"
+								state="{
+									path: 'UnitsInStock',
+									formatter: '.formatter.quantityState'
+								}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
