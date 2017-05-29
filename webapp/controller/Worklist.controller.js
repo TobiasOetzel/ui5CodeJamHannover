@@ -182,7 +182,7 @@ sap.ui.define([
 		},
 
 		/* =========================================================== */
-		/* internal methods											*/
+		/* internal methods                                            */
 		/* =========================================================== */
 
 		/**
@@ -213,7 +213,7 @@ sap.ui.define([
 
 		/**
 		 * Displays an error message dialog. The displayed dialog is content density aware.
-		 * @param {string} sMsg The error message to be displayed
+		 * @param {String} sMsg The error message to be displayed
 		 * @private
 		 */
 		_showErrorMessage: function(sMsg) {
