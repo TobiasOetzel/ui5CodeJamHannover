@@ -6,7 +6,6 @@ sap.ui.define([
 
 	return Controller.extend("sap.ui.demo.wt.controller.InvoiceList", {
 
-
 		onInit: function () {
 			var oViewModel = new JSONModel({
 				currency: "EUR"
