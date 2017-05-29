@@ -17,21 +17,7 @@ sap.ui.define([
 		},
 
 		onOpenDialog : function () {
-			var oView = this.getView();
-			var oDialog = oView.byId("helloDialog");
-			// create dialog lazily
-			if (!oDialog) {
-				// create dialog via fragment factory
-				oDialog = sap.ui.xmlfragment(oView.getId(), "sap.ui.demo.wt.view.HelloDialog", this);
-				// connect dialog to view (models, lifecycle)
-				oView.addDependent(oDialog);
-			}
-
-			oDialog.open();
-		},
-
-		onCloseDialog : function () {
-			this.getView().byId("helloDialog").close();
+			this.getOwnerComponent().openHelloDialog();
 		}
 	});
 
