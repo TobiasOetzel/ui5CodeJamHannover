@@ -20,9 +20,7 @@ sap.ui.require([
 			}
 		});
 
-
 		QUnit.test("Should return the translated texts", function (assert) {
-
 			// Arrange
 			var oViewStub = {
 				getModel: this.stub().withArgs("i18n").returns(this._oResourceModel)
