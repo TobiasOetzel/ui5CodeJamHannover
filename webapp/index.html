@@ -10,12 +10,15 @@
 		data-sap-ui-theme="sap_belize"
 		data-sap-ui-libs="sap.m"
 		data-sap-ui-compatVersion="edge"
-		data-sap-ui-preload="async">
+		data-sap-ui-preload="async"
+		data-sap-ui-resourceroots='{
+			"sap.ui.demo.wt": "./"
+		}'>
 	</script>
 	<script>
 		sap.ui.getCore().attachInit(function () {
-			new sap.m.Text({
-				text: "Hello World"
+			sap.ui.xmlview({
+				viewName: "sap.ui.demo.wt.view.App"
 			}).placeAt("content");
 		});
 	</script>
