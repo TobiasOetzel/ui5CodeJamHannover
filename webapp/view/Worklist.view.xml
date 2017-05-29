@@ -50,6 +50,7 @@
 							noDataText="{worklistView>/tableNoDataText}"
 							updateFinished="onUpdateFinished"
 							width="auto"
+							mode="MultiSelect"
 							items="{
 								path: '/Products',
 								sorter: {
@@ -133,12 +134,17 @@
 					</Table>
 				</content>
 			</IconTabBar>
-
 		</semantic:content>
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction
 				id="shareEmail"
 				press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
+		<semantic:positiveAction>
+			<semantic:PositiveAction text="{i18n>TableProductsReorder}" press="onUpdateStockObjects"/>
+		</semantic:positiveAction>
+		<semantic:negativeAction>
+			<semantic:NegativeAction text="{i18n>TableProductsUnlist}" press="onUnlistObjects"/>
+		</semantic:negativeAction>
 	</semantic:FullscreenPage>
 </mvc:View>
